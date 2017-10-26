@@ -1,0 +1,21 @@
+Name     GateB;
+PartNo   ESD001;
+Date     28-Jan-17;
+Revision 01;
+Designer Shreyas;
+Company  University of Colorado Boulder;
+Assembly None;
+Location None;
+Device   g16v8a;
+
+
+ORDER: A12, A13, A14, A15, RD, PSEN, !READ, CSPERIPH; 
+
+
+VECTORS:
+111110**
+011100**
+101111**
+110100**
+111010**
+000000**

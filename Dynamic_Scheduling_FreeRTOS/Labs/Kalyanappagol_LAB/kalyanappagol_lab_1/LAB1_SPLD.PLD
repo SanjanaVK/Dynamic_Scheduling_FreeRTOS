@@ -1,0 +1,52 @@
+Name            Gates;
+Partno          CA0001;
+Revision        04;
+Date            01/02/89;
+Designer        Sanjana Kalyanappagol;
+Company         Logical Devices, Inc.;
+Location        None;
+Assembly        None;
+Device          g16v8a;
+
+/****************************************************************/
+/*                                                              */
+/*      This is a example to demonstrate how CUPL               */
+/*      compiles simple gates.                                  */
+/*                                                              */
+/****************************************************************/
+
+/*
+ * Inputs:  define inputs to build simple gates from
+ */
+
+Pin 1 =  A12;
+Pin 2 =  A13;
+Pin 3 =  A14;
+Pin 4 =  A15;
+Pin 5 =  RD;
+Pin 6 =  PSEN;
+
+/*
+ * Outputs:  define outputs as active HI levels
+ *
+ */
+
+Pin 12 = READ;
+Pin 13 = CSPERIPH;
+Pin 14 = and;
+Pin 20 = nand;
+Pin 16 = or;
+Pin 17 = nor;
+Pin 18 = xor;
+Pin 19 = xnor;
+
+/*
+ * Logic:  examples of simple gates expressed in CUPL
+ */
+READ = (RD & PSEN);
+CSPERIPH = !(A12 & A13 & A14 & A15);
+
+
+
+
+

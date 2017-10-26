@@ -1,0 +1,1069 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : FreeWare ANSI-C Compiler
+                              3 ; Version 2.6.0 #4309 (Jul 28 2006)
+                              4 ; This file generated Thu Apr 20 12:51:24 2017
+                              5 ;--------------------------------------------------------
+                              6 	.module datadump
+                              7 	.optsdcc -mmcs51 --model-large
+                              8 	
+                              9 ;--------------------------------------------------------
+                             10 ; Public variables in this module
+                             11 ;--------------------------------------------------------
+                             12 	.globl _P5_7
+                             13 	.globl _P5_6
+                             14 	.globl _P5_5
+                             15 	.globl _P5_4
+                             16 	.globl _P5_3
+                             17 	.globl _P5_2
+                             18 	.globl _P5_1
+                             19 	.globl _P5_0
+                             20 	.globl _P4_7
+                             21 	.globl _P4_6
+                             22 	.globl _P4_5
+                             23 	.globl _P4_4
+                             24 	.globl _P4_3
+                             25 	.globl _P4_2
+                             26 	.globl _P4_1
+                             27 	.globl _P4_0
+                             28 	.globl _PX0L
+                             29 	.globl _PT0L
+                             30 	.globl _PX1L
+                             31 	.globl _PT1L
+                             32 	.globl _PLS
+                             33 	.globl _PT2L
+                             34 	.globl _PPCL
+                             35 	.globl _EC
+                             36 	.globl _CCF0
+                             37 	.globl _CCF1
+                             38 	.globl _CCF2
+                             39 	.globl _CCF3
+                             40 	.globl _CCF4
+                             41 	.globl _CR
+                             42 	.globl _CF
+                             43 	.globl _TF2
+                             44 	.globl _EXF2
+                             45 	.globl _RCLK
+                             46 	.globl _TCLK
+                             47 	.globl _EXEN2
+                             48 	.globl _TR2
+                             49 	.globl _C_T2
+                             50 	.globl _CP_RL2
+                             51 	.globl _T2CON_7
+                             52 	.globl _T2CON_6
+                             53 	.globl _T2CON_5
+                             54 	.globl _T2CON_4
+                             55 	.globl _T2CON_3
+                             56 	.globl _T2CON_2
+                             57 	.globl _T2CON_1
+                             58 	.globl _T2CON_0
+                             59 	.globl _PT2
+                             60 	.globl _ET2
+                             61 	.globl _CY
+                             62 	.globl _AC
+                             63 	.globl _F0
+                             64 	.globl _RS1
+                             65 	.globl _RS0
+                             66 	.globl _OV
+                             67 	.globl _F1
+                             68 	.globl _P
+                             69 	.globl _PS
+                             70 	.globl _PT1
+                             71 	.globl _PX1
+                             72 	.globl _PT0
+                             73 	.globl _PX0
+                             74 	.globl _RD
+                             75 	.globl _WR
+                             76 	.globl _T1
+                             77 	.globl _T0
+                             78 	.globl _INT1
+                             79 	.globl _INT0
+                             80 	.globl _TXD
+                             81 	.globl _RXD
+                             82 	.globl _P3_7
+                             83 	.globl _P3_6
+                             84 	.globl _P3_5
+                             85 	.globl _P3_4
+                             86 	.globl _P3_3
+                             87 	.globl _P3_2
+                             88 	.globl _P3_1
+                             89 	.globl _P3_0
+                             90 	.globl _EA
+                             91 	.globl _ES
+                             92 	.globl _ET1
+                             93 	.globl _EX1
+                             94 	.globl _ET0
+                             95 	.globl _EX0
+                             96 	.globl _P2_7
+                             97 	.globl _P2_6
+                             98 	.globl _P2_5
+                             99 	.globl _P2_4
+                            100 	.globl _P2_3
+                            101 	.globl _P2_2
+                            102 	.globl _P2_1
+                            103 	.globl _P2_0
+                            104 	.globl _SM0
+                            105 	.globl _SM1
+                            106 	.globl _SM2
+                            107 	.globl _REN
+                            108 	.globl _TB8
+                            109 	.globl _RB8
+                            110 	.globl _TI
+                            111 	.globl _RI
+                            112 	.globl _P1_7
+                            113 	.globl _P1_6
+                            114 	.globl _P1_5
+                            115 	.globl _P1_4
+                            116 	.globl _P1_3
+                            117 	.globl _P1_2
+                            118 	.globl _P1_1
+                            119 	.globl _P1_0
+                            120 	.globl _TF1
+                            121 	.globl _TR1
+                            122 	.globl _TF0
+                            123 	.globl _TR0
+                            124 	.globl _IE1
+                            125 	.globl _IT1
+                            126 	.globl _IE0
+                            127 	.globl _IT0
+                            128 	.globl _P0_7
+                            129 	.globl _P0_6
+                            130 	.globl _P0_5
+                            131 	.globl _P0_4
+                            132 	.globl _P0_3
+                            133 	.globl _P0_2
+                            134 	.globl _P0_1
+                            135 	.globl _P0_0
+                            136 	.globl _EECON
+                            137 	.globl _KBF
+                            138 	.globl _KBE
+                            139 	.globl _KBLS
+                            140 	.globl _BRL
+                            141 	.globl _BDRCON
+                            142 	.globl _T2MOD
+                            143 	.globl _SPDAT
+                            144 	.globl _SPSTA
+                            145 	.globl _SPCON
+                            146 	.globl _SADEN
+                            147 	.globl _SADDR
+                            148 	.globl _WDTPRG
+                            149 	.globl _WDTRST
+                            150 	.globl _P5
+                            151 	.globl _P4
+                            152 	.globl _IPH1
+                            153 	.globl _IPL1
+                            154 	.globl _IPH0
+                            155 	.globl _IPL0
+                            156 	.globl _IEN1
+                            157 	.globl _IEN0
+                            158 	.globl _CMOD
+                            159 	.globl _CL
+                            160 	.globl _CH
+                            161 	.globl _CCON
+                            162 	.globl _CCAPM4
+                            163 	.globl _CCAPM3
+                            164 	.globl _CCAPM2
+                            165 	.globl _CCAPM1
+                            166 	.globl _CCAPM0
+                            167 	.globl _CCAP4L
+                            168 	.globl _CCAP3L
+                            169 	.globl _CCAP2L
+                            170 	.globl _CCAP1L
+                            171 	.globl _CCAP0L
+                            172 	.globl _CCAP4H
+                            173 	.globl _CCAP3H
+                            174 	.globl _CCAP2H
+                            175 	.globl _CCAP1H
+                            176 	.globl _CCAP0H
+                            177 	.globl _CKCKON1
+                            178 	.globl _CKCKON0
+                            179 	.globl _CKRL
+                            180 	.globl _AUXR1
+                            181 	.globl _AUXR
+                            182 	.globl _TH2
+                            183 	.globl _TL2
+                            184 	.globl _RCAP2H
+                            185 	.globl _RCAP2L
+                            186 	.globl _T2CON
+                            187 	.globl _B
+                            188 	.globl _ACC
+                            189 	.globl _PSW
+                            190 	.globl _IP
+                            191 	.globl _P3
+                            192 	.globl _IE
+                            193 	.globl _P2
+                            194 	.globl _SBUF
+                            195 	.globl _SCON
+                            196 	.globl _P1
+                            197 	.globl _TH1
+                            198 	.globl _TH0
+                            199 	.globl _TL1
+                            200 	.globl _TL0
+                            201 	.globl _TMOD
+                            202 	.globl _TCON
+                            203 	.globl _PCON
+                            204 	.globl _DPH
+                            205 	.globl _DPL
+                            206 	.globl _SP
+                            207 	.globl _P0
+                            208 	.globl _DDRAM_dump
+                            209 	.globl _CGRAM_dump
+                            210 ;--------------------------------------------------------
+                            211 ; special function registers
+                            212 ;--------------------------------------------------------
+                            213 	.area RSEG    (DATA)
+                    0080    214 _P0	=	0x0080
+                    0081    215 _SP	=	0x0081
+                    0082    216 _DPL	=	0x0082
+                    0083    217 _DPH	=	0x0083
+                    0087    218 _PCON	=	0x0087
+                    0088    219 _TCON	=	0x0088
+                    0089    220 _TMOD	=	0x0089
+                    008A    221 _TL0	=	0x008a
+                    008B    222 _TL1	=	0x008b
+                    008C    223 _TH0	=	0x008c
+                    008D    224 _TH1	=	0x008d
+                    0090    225 _P1	=	0x0090
+                    0098    226 _SCON	=	0x0098
+                    0099    227 _SBUF	=	0x0099
+                    00A0    228 _P2	=	0x00a0
+                    00A8    229 _IE	=	0x00a8
+                    00B0    230 _P3	=	0x00b0
+                    00B8    231 _IP	=	0x00b8
+                    00D0    232 _PSW	=	0x00d0
+                    00E0    233 _ACC	=	0x00e0
+                    00F0    234 _B	=	0x00f0
+                    00C8    235 _T2CON	=	0x00c8
+                    00CA    236 _RCAP2L	=	0x00ca
+                    00CB    237 _RCAP2H	=	0x00cb
+                    00CC    238 _TL2	=	0x00cc
+                    00CD    239 _TH2	=	0x00cd
+                    008E    240 _AUXR	=	0x008e
+                    00A2    241 _AUXR1	=	0x00a2
+                    0097    242 _CKRL	=	0x0097
+                    008F    243 _CKCKON0	=	0x008f
+                    008F    244 _CKCKON1	=	0x008f
+                    00FA    245 _CCAP0H	=	0x00fa
+                    00FB    246 _CCAP1H	=	0x00fb
+                    00FC    247 _CCAP2H	=	0x00fc
+                    00FD    248 _CCAP3H	=	0x00fd
+                    00FE    249 _CCAP4H	=	0x00fe
+                    00EA    250 _CCAP0L	=	0x00ea
+                    00EB    251 _CCAP1L	=	0x00eb
+                    00EC    252 _CCAP2L	=	0x00ec
+                    00ED    253 _CCAP3L	=	0x00ed
+                    00EE    254 _CCAP4L	=	0x00ee
+                    00DA    255 _CCAPM0	=	0x00da
+                    00DB    256 _CCAPM1	=	0x00db
+                    00DC    257 _CCAPM2	=	0x00dc
+                    00DD    258 _CCAPM3	=	0x00dd
+                    00DE    259 _CCAPM4	=	0x00de
+                    00D8    260 _CCON	=	0x00d8
+                    00F9    261 _CH	=	0x00f9
+                    00E9    262 _CL	=	0x00e9
+                    00D9    263 _CMOD	=	0x00d9
+                    00A8    264 _IEN0	=	0x00a8
+                    00B1    265 _IEN1	=	0x00b1
+                    00B8    266 _IPL0	=	0x00b8
+                    00B7    267 _IPH0	=	0x00b7
+                    00B2    268 _IPL1	=	0x00b2
+                    00B3    269 _IPH1	=	0x00b3
+                    00C0    270 _P4	=	0x00c0
+                    00D8    271 _P5	=	0x00d8
+                    00A6    272 _WDTRST	=	0x00a6
+                    00A7    273 _WDTPRG	=	0x00a7
+                    00A9    274 _SADDR	=	0x00a9
+                    00B9    275 _SADEN	=	0x00b9
+                    00C3    276 _SPCON	=	0x00c3
+                    00C4    277 _SPSTA	=	0x00c4
+                    00C5    278 _SPDAT	=	0x00c5
+                    00C9    279 _T2MOD	=	0x00c9
+                    009B    280 _BDRCON	=	0x009b
+                    009A    281 _BRL	=	0x009a
+                    009C    282 _KBLS	=	0x009c
+                    009D    283 _KBE	=	0x009d
+                    009E    284 _KBF	=	0x009e
+                    00D2    285 _EECON	=	0x00d2
+                            286 ;--------------------------------------------------------
+                            287 ; special function bits
+                            288 ;--------------------------------------------------------
+                            289 	.area RSEG    (DATA)
+                    0080    290 _P0_0	=	0x0080
+                    0081    291 _P0_1	=	0x0081
+                    0082    292 _P0_2	=	0x0082
+                    0083    293 _P0_3	=	0x0083
+                    0084    294 _P0_4	=	0x0084
+                    0085    295 _P0_5	=	0x0085
+                    0086    296 _P0_6	=	0x0086
+                    0087    297 _P0_7	=	0x0087
+                    0088    298 _IT0	=	0x0088
+                    0089    299 _IE0	=	0x0089
+                    008A    300 _IT1	=	0x008a
+                    008B    301 _IE1	=	0x008b
+                    008C    302 _TR0	=	0x008c
+                    008D    303 _TF0	=	0x008d
+                    008E    304 _TR1	=	0x008e
+                    008F    305 _TF1	=	0x008f
+                    0090    306 _P1_0	=	0x0090
+                    0091    307 _P1_1	=	0x0091
+                    0092    308 _P1_2	=	0x0092
+                    0093    309 _P1_3	=	0x0093
+                    0094    310 _P1_4	=	0x0094
+                    0095    311 _P1_5	=	0x0095
+                    0096    312 _P1_6	=	0x0096
+                    0097    313 _P1_7	=	0x0097
+                    0098    314 _RI	=	0x0098
+                    0099    315 _TI	=	0x0099
+                    009A    316 _RB8	=	0x009a
+                    009B    317 _TB8	=	0x009b
+                    009C    318 _REN	=	0x009c
+                    009D    319 _SM2	=	0x009d
+                    009E    320 _SM1	=	0x009e
+                    009F    321 _SM0	=	0x009f
+                    00A0    322 _P2_0	=	0x00a0
+                    00A1    323 _P2_1	=	0x00a1
+                    00A2    324 _P2_2	=	0x00a2
+                    00A3    325 _P2_3	=	0x00a3
+                    00A4    326 _P2_4	=	0x00a4
+                    00A5    327 _P2_5	=	0x00a5
+                    00A6    328 _P2_6	=	0x00a6
+                    00A7    329 _P2_7	=	0x00a7
+                    00A8    330 _EX0	=	0x00a8
+                    00A9    331 _ET0	=	0x00a9
+                    00AA    332 _EX1	=	0x00aa
+                    00AB    333 _ET1	=	0x00ab
+                    00AC    334 _ES	=	0x00ac
+                    00AF    335 _EA	=	0x00af
+                    00B0    336 _P3_0	=	0x00b0
+                    00B1    337 _P3_1	=	0x00b1
+                    00B2    338 _P3_2	=	0x00b2
+                    00B3    339 _P3_3	=	0x00b3
+                    00B4    340 _P3_4	=	0x00b4
+                    00B5    341 _P3_5	=	0x00b5
+                    00B6    342 _P3_6	=	0x00b6
+                    00B7    343 _P3_7	=	0x00b7
+                    00B0    344 _RXD	=	0x00b0
+                    00B1    345 _TXD	=	0x00b1
+                    00B2    346 _INT0	=	0x00b2
+                    00B3    347 _INT1	=	0x00b3
+                    00B4    348 _T0	=	0x00b4
+                    00B5    349 _T1	=	0x00b5
+                    00B6    350 _WR	=	0x00b6
+                    00B7    351 _RD	=	0x00b7
+                    00B8    352 _PX0	=	0x00b8
+                    00B9    353 _PT0	=	0x00b9
+                    00BA    354 _PX1	=	0x00ba
+                    00BB    355 _PT1	=	0x00bb
+                    00BC    356 _PS	=	0x00bc
+                    00D0    357 _P	=	0x00d0
+                    00D1    358 _F1	=	0x00d1
+                    00D2    359 _OV	=	0x00d2
+                    00D3    360 _RS0	=	0x00d3
+                    00D4    361 _RS1	=	0x00d4
+                    00D5    362 _F0	=	0x00d5
+                    00D6    363 _AC	=	0x00d6
+                    00D7    364 _CY	=	0x00d7
+                    00AD    365 _ET2	=	0x00ad
+                    00BD    366 _PT2	=	0x00bd
+                    00C8    367 _T2CON_0	=	0x00c8
+                    00C9    368 _T2CON_1	=	0x00c9
+                    00CA    369 _T2CON_2	=	0x00ca
+                    00CB    370 _T2CON_3	=	0x00cb
+                    00CC    371 _T2CON_4	=	0x00cc
+                    00CD    372 _T2CON_5	=	0x00cd
+                    00CE    373 _T2CON_6	=	0x00ce
+                    00CF    374 _T2CON_7	=	0x00cf
+                    00C8    375 _CP_RL2	=	0x00c8
+                    00C9    376 _C_T2	=	0x00c9
+                    00CA    377 _TR2	=	0x00ca
+                    00CB    378 _EXEN2	=	0x00cb
+                    00CC    379 _TCLK	=	0x00cc
+                    00CD    380 _RCLK	=	0x00cd
+                    00CE    381 _EXF2	=	0x00ce
+                    00CF    382 _TF2	=	0x00cf
+                    00DF    383 _CF	=	0x00df
+                    00DE    384 _CR	=	0x00de
+                    00DC    385 _CCF4	=	0x00dc
+                    00DB    386 _CCF3	=	0x00db
+                    00DA    387 _CCF2	=	0x00da
+                    00D9    388 _CCF1	=	0x00d9
+                    00D8    389 _CCF0	=	0x00d8
+                    00AE    390 _EC	=	0x00ae
+                    00BE    391 _PPCL	=	0x00be
+                    00BD    392 _PT2L	=	0x00bd
+                    00BC    393 _PLS	=	0x00bc
+                    00BB    394 _PT1L	=	0x00bb
+                    00BA    395 _PX1L	=	0x00ba
+                    00B9    396 _PT0L	=	0x00b9
+                    00B8    397 _PX0L	=	0x00b8
+                    00C0    398 _P4_0	=	0x00c0
+                    00C1    399 _P4_1	=	0x00c1
+                    00C2    400 _P4_2	=	0x00c2
+                    00C3    401 _P4_3	=	0x00c3
+                    00C4    402 _P4_4	=	0x00c4
+                    00C5    403 _P4_5	=	0x00c5
+                    00C6    404 _P4_6	=	0x00c6
+                    00C7    405 _P4_7	=	0x00c7
+                    00D8    406 _P5_0	=	0x00d8
+                    00D9    407 _P5_1	=	0x00d9
+                    00DA    408 _P5_2	=	0x00da
+                    00DB    409 _P5_3	=	0x00db
+                    00DC    410 _P5_4	=	0x00dc
+                    00DD    411 _P5_5	=	0x00dd
+                    00DE    412 _P5_6	=	0x00de
+                    00DF    413 _P5_7	=	0x00df
+                            414 ;--------------------------------------------------------
+                            415 ; overlayable register banks
+                            416 ;--------------------------------------------------------
+                            417 	.area REG_BANK_0	(REL,OVR,DATA)
+   0000                     418 	.ds 8
+                            419 ;--------------------------------------------------------
+                            420 ; internal ram data
+                            421 ;--------------------------------------------------------
+                            422 	.area DSEG    (DATA)
+                            423 ;--------------------------------------------------------
+                            424 ; overlayable items in internal ram 
+                            425 ;--------------------------------------------------------
+                            426 	.area OSEG    (OVR,DATA)
+                            427 ;--------------------------------------------------------
+                            428 ; indirectly addressable internal ram data
+                            429 ;--------------------------------------------------------
+                            430 	.area ISEG    (DATA)
+                            431 ;--------------------------------------------------------
+                            432 ; bit data
+                            433 ;--------------------------------------------------------
+                            434 	.area BSEG    (BIT)
+                            435 ;--------------------------------------------------------
+                            436 ; paged external ram data
+                            437 ;--------------------------------------------------------
+                            438 	.area PSEG    (PAG,XDATA)
+                            439 ;--------------------------------------------------------
+                            440 ; external ram data
+                            441 ;--------------------------------------------------------
+                            442 	.area XSEG    (XDATA)
+                            443 ;--------------------------------------------------------
+                            444 ; external initialized ram data
+                            445 ;--------------------------------------------------------
+                            446 	.area XISEG   (XDATA)
+                            447 	.area HOME    (CODE)
+                            448 	.area GSINIT0 (CODE)
+                            449 	.area GSINIT1 (CODE)
+                            450 	.area GSINIT2 (CODE)
+                            451 	.area GSINIT3 (CODE)
+                            452 	.area GSINIT4 (CODE)
+                            453 	.area GSINIT5 (CODE)
+                            454 	.area GSINIT  (CODE)
+                            455 	.area GSFINAL (CODE)
+                            456 	.area CSEG    (CODE)
+                            457 ;--------------------------------------------------------
+                            458 ; global & static initialisations
+                            459 ;--------------------------------------------------------
+                            460 	.area HOME    (CODE)
+                            461 	.area GSINIT  (CODE)
+                            462 	.area GSFINAL (CODE)
+                            463 	.area GSINIT  (CODE)
+                            464 ;--------------------------------------------------------
+                            465 ; Home
+                            466 ;--------------------------------------------------------
+                            467 	.area HOME    (CODE)
+                            468 	.area CSEG    (CODE)
+                            469 ;--------------------------------------------------------
+                            470 ; code
+                            471 ;--------------------------------------------------------
+                            472 	.area CSEG    (CODE)
+                            473 ;------------------------------------------------------------
+                            474 ;Allocation info for local variables in function 'DDRAM_dump'
+                            475 ;------------------------------------------------------------
+                            476 ;line                      Allocated with name '_DDRAM_dump_line_1_1'
+                            477 ;i                         Allocated with name '_DDRAM_dump_i_1_1'
+                            478 ;------------------------------------------------------------
+                            479 ;	datadump.c:30: void DDRAM_dump() __critical
+                            480 ;	-----------------------------------------
+                            481 ;	 function DDRAM_dump
+                            482 ;	-----------------------------------------
+   0000                     483 _DDRAM_dump:
+                    0002    484 	ar2 = 0x02
+                    0003    485 	ar3 = 0x03
+                    0004    486 	ar4 = 0x04
+                    0005    487 	ar5 = 0x05
+                    0006    488 	ar6 = 0x06
+                    0007    489 	ar7 = 0x07
+                    0000    490 	ar0 = 0x00
+                    0001    491 	ar1 = 0x01
+   0000 D3                  492 	setb	c
+   0001 10 AF 01            493 	jbc	ea,00135$
+   0004 C3                  494 	clr	c
+   0005                     495 00135$:
+   0005 C0 D0               496 	push	psw
+                            497 ;	datadump.c:34: lcdputcmd(DDRAMCMD);        // 0x80 command is passed to the LCD to select DDRAM and Setting its address as 00
+                            498 ;	genCall
+   0007 75 82 80            499 	mov	dpl,#0x80
+   000A 12s00r00            500 	lcall	_lcdputcmd
+                            501 ;	datadump.c:35: printf_tiny("\n\r\t\tAscii Representation\n\r");
+                            502 ;	genIpush
+   000D 74r00               503 	mov	a,#__str_0
+   000F C0 E0               504 	push	acc
+   0011 74s00               505 	mov	a,#(__str_0 >> 8)
+   0013 C0 E0               506 	push	acc
+                            507 ;	genCall
+   0015 12s00r00            508 	lcall	_printf_tiny
+   0018 15 81               509 	dec	sp
+   001A 15 81               510 	dec	sp
+                            511 ;	datadump.c:36: for(i=0;i<64;i++)       // Reading contents of the DDRAM
+                            512 ;	genAssign
+   001C 7A 00               513 	mov	r2,#0x00
+                            514 ;	genAssign
+   001E 7B 00               515 	mov	r3,#0x00
+   0020 7C 00               516 	mov	r4,#0x00
+   0022                     517 00114$:
+                            518 ;	genCmpLt
+                            519 ;	genCmp
+   0022 C3                  520 	clr	c
+   0023 EB                  521 	mov	a,r3
+   0024 94 40               522 	subb	a,#0x40
+   0026 EC                  523 	mov	a,r4
+   0027 64 80               524 	xrl	a,#0x80
+   0029 94 80               525 	subb	a,#0x80
+                            526 ;	genIfxJump
+   002B 40 03               527 	jc	00136$
+   002D 02s00rB2            528 	ljmp	00117$
+   0030                     529 00136$:
+                            530 ;	datadump.c:38: if(i%16==0)         // After every 16 characters , go to new line of the terminal
+                            531 ;	genAssign
+   0030 90s00r00            532 	mov	dptr,#__modsint_PARM_2
+   0033 74 10               533 	mov	a,#0x10
+   0035 F0                  534 	movx	@dptr,a
+   0036 E4                  535 	clr	a
+   0037 A3                  536 	inc	dptr
+   0038 F0                  537 	movx	@dptr,a
+                            538 ;	genCall
+   0039 8B 82               539 	mov	dpl,r3
+   003B 8C 83               540 	mov	dph,r4
+   003D C0 02               541 	push	ar2
+   003F C0 03               542 	push	ar3
+   0041 C0 04               543 	push	ar4
+   0043 12s00r00            544 	lcall	__modsint
+   0046 E5 82               545 	mov	a,dpl
+   0048 85 83 F0            546 	mov	b,dph
+   004B D0 04               547 	pop	ar4
+   004D D0 03               548 	pop	ar3
+   004F D0 02               549 	pop	ar2
+                            550 ;	genIfx
+   0051 45 F0               551 	orl	a,b
+                            552 ;	genIfxJump
+                            553 ;	Peephole 108.b	removed ljmp by inverse jump logic
+   0053 70 33               554 	jnz	00102$
+                            555 ;	Peephole 300	removed redundant label 00137$
+                            556 ;	datadump.c:40: line++;
+                            557 ;	genPlus
+                            558 ;     genPlusIncr
+   0055 0A                  559 	inc	r2
+                            560 ;	datadump.c:41: printf_tiny("\n\r\t\t");
+                            561 ;	genIpush
+   0056 C0 02               562 	push	ar2
+   0058 C0 03               563 	push	ar3
+   005A C0 04               564 	push	ar4
+   005C 74r1B               565 	mov	a,#__str_1
+   005E C0 E0               566 	push	acc
+   0060 74s00               567 	mov	a,#(__str_1 >> 8)
+   0062 C0 E0               568 	push	acc
+                            569 ;	genCall
+   0064 12s00r00            570 	lcall	_printf_tiny
+   0067 15 81               571 	dec	sp
+   0069 15 81               572 	dec	sp
+   006B D0 04               573 	pop	ar4
+   006D D0 03               574 	pop	ar3
+   006F D0 02               575 	pop	ar2
+                            576 ;	datadump.c:42: lcdgotoxy(line,1);
+                            577 ;	genAssign
+   0071 90s00r00            578 	mov	dptr,#_lcdgotoxy_PARM_2
+   0074 74 01               579 	mov	a,#0x01
+   0076 F0                  580 	movx	@dptr,a
+                            581 ;	genCall
+   0077 8A 82               582 	mov	dpl,r2
+   0079 C0 02               583 	push	ar2
+   007B C0 03               584 	push	ar3
+   007D C0 04               585 	push	ar4
+   007F 12s00r00            586 	lcall	_lcdgotoxy
+   0082 D0 04               587 	pop	ar4
+   0084 D0 03               588 	pop	ar3
+   0086 D0 02               589 	pop	ar2
+   0088                     590 00102$:
+                            591 ;	datadump.c:46: putchar(lcdread());     // Read character from the DDRAM and print it to the terminal
+                            592 ;	genCall
+   0088 C0 02               593 	push	ar2
+   008A C0 03               594 	push	ar3
+   008C C0 04               595 	push	ar4
+   008E 12s00r00            596 	lcall	_lcdread
+   0091 AD 82               597 	mov	r5,dpl
+   0093 D0 04               598 	pop	ar4
+   0095 D0 03               599 	pop	ar3
+   0097 D0 02               600 	pop	ar2
+                            601 ;	genCall
+   0099 8D 82               602 	mov	dpl,r5
+   009B C0 02               603 	push	ar2
+   009D C0 03               604 	push	ar3
+   009F C0 04               605 	push	ar4
+   00A1 12s00r00            606 	lcall	_putchar
+   00A4 D0 04               607 	pop	ar4
+   00A6 D0 03               608 	pop	ar3
+   00A8 D0 02               609 	pop	ar2
+                            610 ;	datadump.c:36: for(i=0;i<64;i++)       // Reading contents of the DDRAM
+                            611 ;	genPlus
+                            612 ;     genPlusIncr
+   00AA 0B                  613 	inc	r3
+   00AB BB 00 01            614 	cjne	r3,#0x00,00138$
+   00AE 0C                  615 	inc	r4
+   00AF                     616 00138$:
+   00AF 02s00r22            617 	ljmp	00114$
+   00B2                     618 00117$:
+                            619 ;	datadump.c:49: lcdgotoxy(1,1); //Go to first position on the LCD
+                            620 ;	genAssign
+   00B2 90s00r00            621 	mov	dptr,#_lcdgotoxy_PARM_2
+   00B5 74 01               622 	mov	a,#0x01
+   00B7 F0                  623 	movx	@dptr,a
+                            624 ;	genCall
+   00B8 75 82 01            625 	mov	dpl,#0x01
+   00BB 12s00r00            626 	lcall	_lcdgotoxy
+                            627 ;	datadump.c:51: printf_tiny("\n\r\t\tHex Representation\n\r");
+                            628 ;	genIpush
+   00BE 74r20               629 	mov	a,#__str_2
+   00C0 C0 E0               630 	push	acc
+   00C2 74s00               631 	mov	a,#(__str_2 >> 8)
+   00C4 C0 E0               632 	push	acc
+                            633 ;	genCall
+   00C6 12s00r00            634 	lcall	_printf_tiny
+   00C9 15 81               635 	dec	sp
+   00CB 15 81               636 	dec	sp
+                            637 ;	datadump.c:52: for(i=0;i<64;i++) //Display 64 bytes of the DDRAM
+                            638 ;	genAssign
+   00CD 7A 00               639 	mov	r2,#0x00
+                            640 ;	genAssign
+   00CF 7B 00               641 	mov	r3,#0x00
+   00D1 7C 00               642 	mov	r4,#0x00
+   00D3                     643 00118$:
+                            644 ;	genCmpLt
+                            645 ;	genCmp
+   00D3 C3                  646 	clr	c
+   00D4 EB                  647 	mov	a,r3
+   00D5 94 40               648 	subb	a,#0x40
+   00D7 EC                  649 	mov	a,r4
+   00D8 64 80               650 	xrl	a,#0x80
+   00DA 94 80               651 	subb	a,#0x80
+                            652 ;	genIfxJump
+   00DC 40 03               653 	jc	00139$
+   00DE 02s02r20            654 	ljmp	00122$
+   00E1                     655 00139$:
+                            656 ;	datadump.c:54: if(i%16==0)     //After every 16 bytes display the appropriate address of the 1st byte on the line
+                            657 ;	genAssign
+   00E1 90s00r00            658 	mov	dptr,#__modsint_PARM_2
+   00E4 74 10               659 	mov	a,#0x10
+   00E6 F0                  660 	movx	@dptr,a
+   00E7 E4                  661 	clr	a
+   00E8 A3                  662 	inc	dptr
+   00E9 F0                  663 	movx	@dptr,a
+                            664 ;	genCall
+   00EA 8B 82               665 	mov	dpl,r3
+   00EC 8C 83               666 	mov	dph,r4
+   00EE C0 02               667 	push	ar2
+   00F0 C0 03               668 	push	ar3
+   00F2 C0 04               669 	push	ar4
+   00F4 12s00r00            670 	lcall	__modsint
+   00F7 E5 82               671 	mov	a,dpl
+   00F9 85 83 F0            672 	mov	b,dph
+   00FC D0 04               673 	pop	ar4
+   00FE D0 03               674 	pop	ar3
+   0100 D0 02               675 	pop	ar2
+                            676 ;	genIfx
+   0102 45 F0               677 	orl	a,b
+                            678 ;	genIfxJump
+   0104 60 03               679 	jz	00140$
+   0106 02s01rE1            680 	ljmp	00113$
+   0109                     681 00140$:
+                            682 ;	datadump.c:56: line++;
+                            683 ;	genPlus
+                            684 ;     genPlusIncr
+   0109 0A                  685 	inc	r2
+                            686 ;	datadump.c:57: printf_tiny("\n\r\t\t");
+                            687 ;	genIpush
+   010A C0 02               688 	push	ar2
+   010C C0 03               689 	push	ar3
+   010E C0 04               690 	push	ar4
+   0110 74r1B               691 	mov	a,#__str_1
+   0112 C0 E0               692 	push	acc
+   0114 74s00               693 	mov	a,#(__str_1 >> 8)
+   0116 C0 E0               694 	push	acc
+                            695 ;	genCall
+   0118 12s00r00            696 	lcall	_printf_tiny
+   011B 15 81               697 	dec	sp
+   011D 15 81               698 	dec	sp
+   011F D0 04               699 	pop	ar4
+   0121 D0 03               700 	pop	ar3
+   0123 D0 02               701 	pop	ar2
+                            702 ;	datadump.c:58: lcdgotoxy(line,1);
+                            703 ;	genAssign
+   0125 90s00r00            704 	mov	dptr,#_lcdgotoxy_PARM_2
+   0128 74 01               705 	mov	a,#0x01
+   012A F0                  706 	movx	@dptr,a
+                            707 ;	genCall
+   012B 8A 82               708 	mov	dpl,r2
+   012D C0 02               709 	push	ar2
+   012F C0 03               710 	push	ar3
+   0131 C0 04               711 	push	ar4
+   0133 12s00r00            712 	lcall	_lcdgotoxy
+   0136 D0 04               713 	pop	ar4
+   0138 D0 03               714 	pop	ar3
+   013A D0 02               715 	pop	ar2
+                            716 ;	datadump.c:59: if(i==0)
+                            717 ;	genIfx
+   013C EB                  718 	mov	a,r3
+   013D 4C                  719 	orl	a,r4
+                            720 ;	genIfxJump
+                            721 ;	Peephole 108.b	removed ljmp by inverse jump logic
+   013E 70 25               722 	jnz	00110$
+                            723 ;	Peephole 300	removed redundant label 00141$
+                            724 ;	datadump.c:60: printf_tiny("\n\n\r0x%x",ADD_L1);
+                            725 ;	genIpush
+   0140 C0 02               726 	push	ar2
+   0142 C0 03               727 	push	ar3
+   0144 C0 04               728 	push	ar4
+                            729 ;	Peephole 181	changed mov to clr
+   0146 E4                  730 	clr	a
+   0147 C0 E0               731 	push	acc
+   0149 C0 E0               732 	push	acc
+                            733 ;	genIpush
+   014B 74r39               734 	mov	a,#__str_3
+   014D C0 E0               735 	push	acc
+   014F 74s00               736 	mov	a,#(__str_3 >> 8)
+   0151 C0 E0               737 	push	acc
+                            738 ;	genCall
+   0153 12s00r00            739 	lcall	_printf_tiny
+   0156 E5 81               740 	mov	a,sp
+   0158 24 FC               741 	add	a,#0xfc
+   015A F5 81               742 	mov	sp,a
+   015C D0 04               743 	pop	ar4
+   015E D0 03               744 	pop	ar3
+   0160 D0 02               745 	pop	ar2
+   0162 02s01rE1            746 	ljmp	00113$
+   0165                     747 00110$:
+                            748 ;	datadump.c:61: else if(i==16)
+                            749 ;	genCmpEq
+                            750 ;	gencjneshort
+                            751 ;	Peephole 112.b	changed ljmp to sjmp
+                            752 ;	Peephole 198.a	optimized misc jump sequence
+   0165 BB 10 29            753 	cjne	r3,#0x10,00107$
+   0168 BC 00 26            754 	cjne	r4,#0x00,00107$
+                            755 ;	Peephole 200.b	removed redundant sjmp
+                            756 ;	Peephole 300	removed redundant label 00142$
+                            757 ;	Peephole 300	removed redundant label 00143$
+                            758 ;	datadump.c:62: printf_tiny("\n\n\r0x%x",ADD_L2);
+                            759 ;	genIpush
+   016B C0 02               760 	push	ar2
+   016D C0 03               761 	push	ar3
+   016F C0 04               762 	push	ar4
+   0171 74 40               763 	mov	a,#0x40
+   0173 C0 E0               764 	push	acc
+                            765 ;	Peephole 181	changed mov to clr
+   0175 E4                  766 	clr	a
+   0176 C0 E0               767 	push	acc
+                            768 ;	genIpush
+   0178 74r39               769 	mov	a,#__str_3
+   017A C0 E0               770 	push	acc
+   017C 74s00               771 	mov	a,#(__str_3 >> 8)
+   017E C0 E0               772 	push	acc
+                            773 ;	genCall
+   0180 12s00r00            774 	lcall	_printf_tiny
+   0183 E5 81               775 	mov	a,sp
+   0185 24 FC               776 	add	a,#0xfc
+   0187 F5 81               777 	mov	sp,a
+   0189 D0 04               778 	pop	ar4
+   018B D0 03               779 	pop	ar3
+   018D D0 02               780 	pop	ar2
+                            781 ;	Peephole 112.b	changed ljmp to sjmp
+   018F 80 50               782 	sjmp	00113$
+   0191                     783 00107$:
+                            784 ;	datadump.c:63: else if(i==32)
+                            785 ;	genCmpEq
+                            786 ;	gencjneshort
+                            787 ;	Peephole 112.b	changed ljmp to sjmp
+                            788 ;	Peephole 198.a	optimized misc jump sequence
+   0191 BB 20 29            789 	cjne	r3,#0x20,00104$
+   0194 BC 00 26            790 	cjne	r4,#0x00,00104$
+                            791 ;	Peephole 200.b	removed redundant sjmp
+                            792 ;	Peephole 300	removed redundant label 00144$
+                            793 ;	Peephole 300	removed redundant label 00145$
+                            794 ;	datadump.c:64: printf_tiny("\n\n\r0x%x",ADD_L3);
+                            795 ;	genIpush
+   0197 C0 02               796 	push	ar2
+   0199 C0 03               797 	push	ar3
+   019B C0 04               798 	push	ar4
+   019D 74 10               799 	mov	a,#0x10
+   019F C0 E0               800 	push	acc
+                            801 ;	Peephole 181	changed mov to clr
+   01A1 E4                  802 	clr	a
+   01A2 C0 E0               803 	push	acc
+                            804 ;	genIpush
+   01A4 74r39               805 	mov	a,#__str_3
+   01A6 C0 E0               806 	push	acc
+   01A8 74s00               807 	mov	a,#(__str_3 >> 8)
+   01AA C0 E0               808 	push	acc
+                            809 ;	genCall
+   01AC 12s00r00            810 	lcall	_printf_tiny
+   01AF E5 81               811 	mov	a,sp
+   01B1 24 FC               812 	add	a,#0xfc
+   01B3 F5 81               813 	mov	sp,a
+   01B5 D0 04               814 	pop	ar4
+   01B7 D0 03               815 	pop	ar3
+   01B9 D0 02               816 	pop	ar2
+                            817 ;	Peephole 112.b	changed ljmp to sjmp
+   01BB 80 24               818 	sjmp	00113$
+   01BD                     819 00104$:
+                            820 ;	datadump.c:66: printf_tiny("\n\n\r0x%x",ADD_L4);
+                            821 ;	genIpush
+   01BD C0 02               822 	push	ar2
+   01BF C0 03               823 	push	ar3
+   01C1 C0 04               824 	push	ar4
+   01C3 74 50               825 	mov	a,#0x50
+   01C5 C0 E0               826 	push	acc
+                            827 ;	Peephole 181	changed mov to clr
+   01C7 E4                  828 	clr	a
+   01C8 C0 E0               829 	push	acc
+                            830 ;	genIpush
+   01CA 74r39               831 	mov	a,#__str_3
+   01CC C0 E0               832 	push	acc
+   01CE 74s00               833 	mov	a,#(__str_3 >> 8)
+   01D0 C0 E0               834 	push	acc
+                            835 ;	genCall
+   01D2 12s00r00            836 	lcall	_printf_tiny
+   01D5 E5 81               837 	mov	a,sp
+   01D7 24 FC               838 	add	a,#0xfc
+   01D9 F5 81               839 	mov	sp,a
+   01DB D0 04               840 	pop	ar4
+   01DD D0 03               841 	pop	ar3
+   01DF D0 02               842 	pop	ar2
+   01E1                     843 00113$:
+                            844 ;	datadump.c:70: printf_tiny("\t %x",lcdread()); //Display the character by doing lcdread
+                            845 ;	genCall
+   01E1 C0 02               846 	push	ar2
+   01E3 C0 03               847 	push	ar3
+   01E5 C0 04               848 	push	ar4
+   01E7 12s00r00            849 	lcall	_lcdread
+   01EA AD 82               850 	mov	r5,dpl
+   01EC D0 04               851 	pop	ar4
+   01EE D0 03               852 	pop	ar3
+   01F0 D0 02               853 	pop	ar2
+                            854 ;	genCast
+   01F2 ED                  855 	mov	a,r5
+   01F3 33                  856 	rlc	a
+   01F4 95 E0               857 	subb	a,acc
+   01F6 FE                  858 	mov	r6,a
+                            859 ;	genIpush
+   01F7 C0 02               860 	push	ar2
+   01F9 C0 03               861 	push	ar3
+   01FB C0 04               862 	push	ar4
+   01FD C0 05               863 	push	ar5
+   01FF C0 06               864 	push	ar6
+                            865 ;	genIpush
+   0201 74r41               866 	mov	a,#__str_4
+   0203 C0 E0               867 	push	acc
+   0205 74s00               868 	mov	a,#(__str_4 >> 8)
+   0207 C0 E0               869 	push	acc
+                            870 ;	genCall
+   0209 12s00r00            871 	lcall	_printf_tiny
+   020C E5 81               872 	mov	a,sp
+   020E 24 FC               873 	add	a,#0xfc
+   0210 F5 81               874 	mov	sp,a
+   0212 D0 04               875 	pop	ar4
+   0214 D0 03               876 	pop	ar3
+   0216 D0 02               877 	pop	ar2
+                            878 ;	datadump.c:52: for(i=0;i<64;i++) //Display 64 bytes of the DDRAM
+                            879 ;	genPlus
+                            880 ;     genPlusIncr
+   0218 0B                  881 	inc	r3
+   0219 BB 00 01            882 	cjne	r3,#0x00,00146$
+   021C 0C                  883 	inc	r4
+   021D                     884 00146$:
+   021D 02s00rD3            885 	ljmp	00118$
+   0220                     886 00122$:
+   0220 D0 D0               887 	pop	psw
+   0222 92 AF               888 	mov	ea,c
+   0224 22                  889 	ret
+                            890 ;------------------------------------------------------------
+                            891 ;Allocation info for local variables in function 'CGRAM_dump'
+                            892 ;------------------------------------------------------------
+                            893 ;temp                      Allocated with name '_CGRAM_dump_temp_1_1'
+                            894 ;i                         Allocated with name '_CGRAM_dump_i_1_1'
+                            895 ;------------------------------------------------------------
+                            896 ;	datadump.c:84: void CGRAM_dump() __critical
+                            897 ;	-----------------------------------------
+                            898 ;	 function CGRAM_dump
+                            899 ;	-----------------------------------------
+   0225                     900 _CGRAM_dump:
+   0225 D3                  901 	setb	c
+   0226 10 AF 01            902 	jbc	ea,00113$
+   0229 C3                  903 	clr	c
+   022A                     904 00113$:
+   022A C0 D0               905 	push	psw
+                            906 ;	datadump.c:88: putchar('\n');
+                            907 ;	genCall
+   022C 75 82 0A            908 	mov	dpl,#0x0A
+   022F 12s00r00            909 	lcall	_putchar
+                            910 ;	datadump.c:89: lcdputcmd(CGRAMCMD);        // 0x40 is Passed to select CGRAM and setting its address as 00
+                            911 ;	genCall
+   0232 75 82 40            912 	mov	dpl,#0x40
+   0235 12s00r00            913 	lcall	_lcdputcmd
+                            914 ;	datadump.c:90: for(i=0;i<64;i++)       // 64 bytes of CGRAM are read
+                            915 ;	genAssign
+   0238 7A 00               916 	mov	r2,#0x00
+   023A 7B 00               917 	mov	r3,#0x00
+   023C                     918 00103$:
+                            919 ;	genCmpLt
+                            920 ;	genCmp
+   023C C3                  921 	clr	c
+   023D EA                  922 	mov	a,r2
+   023E 94 40               923 	subb	a,#0x40
+   0240 EB                  924 	mov	a,r3
+   0241 64 80               925 	xrl	a,#0x80
+   0243 94 80               926 	subb	a,#0x80
+                            927 ;	genIfxJump
+   0245 40 03               928 	jc	00114$
+   0247 02s02rCE            929 	ljmp	00107$
+   024A                     930 00114$:
+                            931 ;	datadump.c:92: if(i%8==0)
+                            932 ;	genAssign
+   024A 90s00r00            933 	mov	dptr,#__modsint_PARM_2
+   024D 74 08               934 	mov	a,#0x08
+   024F F0                  935 	movx	@dptr,a
+   0250 E4                  936 	clr	a
+   0251 A3                  937 	inc	dptr
+   0252 F0                  938 	movx	@dptr,a
+                            939 ;	genCall
+   0253 8A 82               940 	mov	dpl,r2
+   0255 8B 83               941 	mov	dph,r3
+   0257 C0 02               942 	push	ar2
+   0259 C0 03               943 	push	ar3
+   025B 12s00r00            944 	lcall	__modsint
+   025E E5 82               945 	mov	a,dpl
+   0260 85 83 F0            946 	mov	b,dph
+   0263 D0 03               947 	pop	ar3
+   0265 D0 02               948 	pop	ar2
+                            949 ;	genIfx
+   0267 45 F0               950 	orl	a,b
+                            951 ;	genIfxJump
+                            952 ;	Peephole 108.b	removed ljmp by inverse jump logic
+   0269 70 1D               953 	jnz	00102$
+                            954 ;	Peephole 300	removed redundant label 00115$
+                            955 ;	datadump.c:94: printf_tiny("\n\n\r0x%x",i);
+                            956 ;	genIpush
+   026B C0 02               957 	push	ar2
+   026D C0 03               958 	push	ar3
+   026F C0 02               959 	push	ar2
+   0271 C0 03               960 	push	ar3
+                            961 ;	genIpush
+   0273 74r39               962 	mov	a,#__str_3
+   0275 C0 E0               963 	push	acc
+   0277 74s00               964 	mov	a,#(__str_3 >> 8)
+   0279 C0 E0               965 	push	acc
+                            966 ;	genCall
+   027B 12s00r00            967 	lcall	_printf_tiny
+   027E E5 81               968 	mov	a,sp
+   0280 24 FC               969 	add	a,#0xfc
+   0282 F5 81               970 	mov	sp,a
+   0284 D0 03               971 	pop	ar3
+   0286 D0 02               972 	pop	ar2
+   0288                     973 00102$:
+                            974 ;	datadump.c:96: temp = lcdread();   // Reading data from the LCD
+                            975 ;	genCall
+   0288 C0 02               976 	push	ar2
+   028A C0 03               977 	push	ar3
+   028C 12s00r00            978 	lcall	_lcdread
+   028F AC 82               979 	mov	r4,dpl
+   0291 D0 03               980 	pop	ar3
+   0293 D0 02               981 	pop	ar2
+                            982 ;	datadump.c:97: putchar('\t');
+                            983 ;	genCall
+   0295 75 82 09            984 	mov	dpl,#0x09
+   0298 C0 02               985 	push	ar2
+   029A C0 03               986 	push	ar3
+   029C C0 04               987 	push	ar4
+   029E 12s00r00            988 	lcall	_putchar
+   02A1 D0 04               989 	pop	ar4
+   02A3 D0 03               990 	pop	ar3
+   02A5 D0 02               991 	pop	ar2
+                            992 ;	datadump.c:98: printf_tiny("%x",temp);      // Displaying Data on the terminal
+                            993 ;	genAssign
+                            994 ;	genCast
+   02A7 7D 00               995 	mov	r5,#0x00
+                            996 ;	genIpush
+   02A9 C0 02               997 	push	ar2
+   02AB C0 03               998 	push	ar3
+   02AD C0 04               999 	push	ar4
+   02AF C0 05              1000 	push	ar5
+                           1001 ;	genIpush
+   02B1 74r46              1002 	mov	a,#__str_5
+   02B3 C0 E0              1003 	push	acc
+   02B5 74s00              1004 	mov	a,#(__str_5 >> 8)
+   02B7 C0 E0              1005 	push	acc
+                           1006 ;	genCall
+   02B9 12s00r00           1007 	lcall	_printf_tiny
+   02BC E5 81              1008 	mov	a,sp
+   02BE 24 FC              1009 	add	a,#0xfc
+   02C0 F5 81              1010 	mov	sp,a
+   02C2 D0 03              1011 	pop	ar3
+   02C4 D0 02              1012 	pop	ar2
+                           1013 ;	datadump.c:90: for(i=0;i<64;i++)       // 64 bytes of CGRAM are read
+                           1014 ;	genPlus
+                           1015 ;     genPlusIncr
+   02C6 0A                 1016 	inc	r2
+   02C7 BA 00 01           1017 	cjne	r2,#0x00,00116$
+   02CA 0B                 1018 	inc	r3
+   02CB                    1019 00116$:
+   02CB 02s02r3C           1020 	ljmp	00103$
+   02CE                    1021 00107$:
+   02CE D0 D0              1022 	pop	psw
+   02D0 92 AF              1023 	mov	ea,c
+   02D2 22                 1024 	ret
+                           1025 	.area CSEG    (CODE)
+                           1026 	.area CONST   (CODE)
+   0000                    1027 __str_0:
+   0000 0A                 1028 	.db 0x0A
+   0001 0D                 1029 	.db 0x0D
+   0002 09                 1030 	.db 0x09
+   0003 09                 1031 	.db 0x09
+   0004 41 73 63 69 69 20  1032 	.ascii "Ascii Representation"
+        52 65 70 72 65 73
+        65 6E 74 61 74 69
+        6F 6E
+   0018 0A                 1033 	.db 0x0A
+   0019 0D                 1034 	.db 0x0D
+   001A 00                 1035 	.db 0x00
+   001B                    1036 __str_1:
+   001B 0A                 1037 	.db 0x0A
+   001C 0D                 1038 	.db 0x0D
+   001D 09                 1039 	.db 0x09
+   001E 09                 1040 	.db 0x09
+   001F 00                 1041 	.db 0x00
+   0020                    1042 __str_2:
+   0020 0A                 1043 	.db 0x0A
+   0021 0D                 1044 	.db 0x0D
+   0022 09                 1045 	.db 0x09
+   0023 09                 1046 	.db 0x09
+   0024 48 65 78 20 52 65  1047 	.ascii "Hex Representation"
+        70 72 65 73 65 6E
+        74 61 74 69 6F 6E
+   0036 0A                 1048 	.db 0x0A
+   0037 0D                 1049 	.db 0x0D
+   0038 00                 1050 	.db 0x00
+   0039                    1051 __str_3:
+   0039 0A                 1052 	.db 0x0A
+   003A 0A                 1053 	.db 0x0A
+   003B 0D                 1054 	.db 0x0D
+   003C 30 78 25 78        1055 	.ascii "0x%x"
+   0040 00                 1056 	.db 0x00
+   0041                    1057 __str_4:
+   0041 09                 1058 	.db 0x09
+   0042 20 25 78           1059 	.ascii " %x"
+   0045 00                 1060 	.db 0x00
+   0046                    1061 __str_5:
+   0046 25 78              1062 	.ascii "%x"
+   0048 00                 1063 	.db 0x00
+                           1064 	.area XINIT   (CODE)

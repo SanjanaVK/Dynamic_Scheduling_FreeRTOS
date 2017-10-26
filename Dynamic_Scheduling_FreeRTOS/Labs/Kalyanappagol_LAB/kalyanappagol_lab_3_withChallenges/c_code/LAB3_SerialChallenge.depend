@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1489527476 source:c:\users\sanjanakalyanappagol\lab3_serialchallenge\circbuf.c
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	"circbuf.h"
+
+1489565561 c:\users\sanjanakalyanappagol\lab3_serialchallenge\circbuf.h
+

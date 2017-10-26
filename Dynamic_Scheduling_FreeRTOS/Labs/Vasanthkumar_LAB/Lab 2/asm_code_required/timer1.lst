@@ -1,0 +1,78 @@
+A51 MACRO ASSEMBLER  TIMER1                                                               02/17/2017 15:30:03 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\timer1.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE ..\ESD\asm\timer1.asm SET(SMALL) DEBUG PRINT(.\Listings\timer1.lst) OBJ
+                      ECT(.\Objects\timer1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 020030            2     LJMP MAIN  ; jump to main loop
+
+                       3     
+
+000B                   4     ORG 000BH   ; timer0 interrupt address
+
+000B D295              5     SETB P1.5   ; set second unused port pin
+
+000D DB04              6     DJNZ R3,BACK 
+
+000F B293              7     CPL P1.3    ; pin connected to LED
+
+0011 7B08              8     MOV R3,#08H
+
+0013 758A00            9     BACK: MOV TL0,#00H  ; load values into timer registers
+
+0016 758C00           10           MOV TH0,#00H
+
+0019 C295             11           CLR P1.5    ; clear unused port pin
+
+001B 32               12           RETI        ; return from interrupt
+
+                      13     
+
+0030                  14           ORG 30H      ; main loop 
+
+0030 758901           15     MAIN: MOV TMOD,#01H   ; timer0 mode 1 
+
+0033 7B08             16               MOV R3,#08H
+
+0035 758A00           17     DELAY: MOV TL0,#00H  ; load values into timer registers
+
+0038 758C34           18            MOV TH0,#34H
+
+003B 75A882           19                MOV IE,#82H  ; set timer0 interrupts enable
+
+003E D28C             20                SETB TR0         ; start timer0     
+
+0040 80FE             21     HERE: SJMP HERE    ; infinite loop
+
+                      22           END                       
+
+A51 MACRO ASSEMBLER  TIMER1                                                               02/17/2017 15:30:03 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BACK . . . . . . .  C ADDR   0013H   A   
+DELAY. . . . . . .  C ADDR   0035H   A   
+HERE . . . . . . .  C ADDR   0040H   A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,120 @@
+A51 MACRO ASSEMBLER  LAB2_SUPPLE2                                                         02/22/2017 00:29:48 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN LAB2_supple2.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE LAB2_supple2.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1            ORG 00H
+
+0000 02000E            2            LJMP MAIN  ;bypassing interrupt vector table 
+
+                       3     
+
+000B                   4            ORG 000BH       ;timer0 interrupt vector table
+
+000B 020030            5            LJMP ISR_Timer0 
+
+                       6     
+
+000E 758901            7     MAIN:  MOV TMOD,#01H ;Selecting Timer 0 Mode 1
+
+0011 75A882            8            MOV IE, #82H  ;Enabling Timer 0 Interrupt 
+
+0014 7808              9            MOV R0, #08H   ;Count value for the delay
+
+0016 758C32           10            MOV TH0,#32H   ;Loading Count value in higher 8 bit register of the timer
+
+0019 758A00           11            MOV TL0, #00H  ;Loading Count value in higher 8 bit register of the timer
+
+001C E4               12            CLR A          ;Clear Accumulator
+
+001D 7C00             13            MOV R4,#00H    ;Load count value to the R4 register
+
+001F 7B80             14            MOV R3,#80H    ;Load another count value to R3 register
+
+0021 D28C             15            SETB TR0       ;Starting the timer0
+
+0023 900004           16     HERE:  MOV DPTR, #04H  ;Load address location to the DPTR, and now the DPTR points to the l
+                             ocation
+
+0026 EC               17            MOV A,R4        ;Load value in R4 to Accumulator
+
+0027 F0               18            MOVX @DPTR,A    ;Load value that is in Accumulator to the memory location that is st
+                             ored in DPTR
+
+0028 0C               19            INC R4          ;Increment the value in R4
+
+0029 BC8002           20            CJNE R4,#80H,LOOP1 ;Check if value in R4 has reached 80H, if yes then load it back t
+                             o 0H
+
+002C 7C00             21            MOV R4,#0H        ;Load 0H to R4
+
+002E 80F3             22     LOOP1: SJMP HERE      ;waiting in infinite loop till there is an interrupt
+
+                      23          
+
+0030 D291             24     ISR_Timer0:SETB P1.1       ;toggling P1.1 everytime it enters the interrupt routine
+
+0032 900002           25                MOV DPTR, #02H  ;Load address location to the DPTR, and now the DPTR points to t
+                             he location
+
+0035 EB               26                MOV A,R3        ;Load value in R3 to Accumulator
+
+0036 F0               27                MOVX @DPTR,A    ;Load value that is in Accumulator to the memory location that i
+                             s stored in DPTR
+
+0037 0B               28                INC R3          ;Increment the value in R3
+
+0038 BB0002           29                CJNE R3,#00H,LOOP ;Check if value in R3 has reached beyond FFh, if yes then load
+                              it back to 80H
+
+003B 7B80             30                MOV R3,#80H      ;Load 80H to R3
+
+003D D80C             31       LOOP:    DJNZ R0, BACK   ;Check for count value, complement the LED only if R0 decrements
+                              to zero
+
+003F B292             32                CPL P1.2        ;Complementing LED
+
+0041 7808             33                MOV R0,#08H      ;Load the count value again for the delay
+
+0043 758C32           34                MOV TH0,#32H
+
+0046 758A00           35                MOV TL0, #00H
+
+0049 D28C             36                SETB TR0        ;Start timer0
+
+004B C291             37     BACK:      CLR P1.1        ;toggle P1.1 everytime it is exiting interrupt routine
+
+004D 32               38                RETI            ;return from the interrupt routine
+
+                      39                END
+
+A51 MACRO ASSEMBLER  LAB2_SUPPLE2                                                         02/22/2017 00:29:48 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BACK . . . . . . .  C ADDR   004BH   A   
+HERE . . . . . . .  C ADDR   0023H   A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+ISR_TIMER0 . . . .  C ADDR   0030H   A   
+LOOP . . . . . . .  C ADDR   003DH   A   
+LOOP1. . . . . . .  C ADDR   002EH   A   
+MAIN . . . . . . .  C ADDR   000EH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

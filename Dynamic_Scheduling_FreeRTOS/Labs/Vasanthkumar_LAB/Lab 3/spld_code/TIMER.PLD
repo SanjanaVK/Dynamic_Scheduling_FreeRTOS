@@ -1,0 +1,39 @@
+Name     Timer ;
+PartNo   ESD001 ;
+Date     28-Jan-17 ;
+Revision 01 ;
+Designer Shreyas ;
+Company  University of Colorado Boulder ;
+Assembly None ;
+Location None ;
+Device   g16v8a ;
+
+/* *************** INPUT PINS *********************/
+PIN 3   = A15                        ; // input pin A15    */ 
+PIN 4   = A14                        ; // input pin A14   */ 
+PIN 5   = A13                        ; // input pin A13  */ 
+PIN 6   = A12                        ; // input pin A12 */ 
+PIN 7   = RD                        ; //  input pin RD */ 
+PIN 2   = PSEN                        ; // input pin PSEN*/
+PIN 8   = WR                          ; // input pin WR */
+PIN 17  = A10  ;
+PIN 18  = A11  ;
+
+/* *************** OUTPUT PINS *********************/
+PIN  12   = READ                        ; // output pin READ */ 
+PIN  13   = CSPERIPH                    ; // output pin CSPERIPH */ 
+PIN  14   = OE    ;
+PIN  15   = CE    ;
+PIN  16   = CLK   ;
+/* ************** LOGIC ****************************/
+
+READ= RD & PSEN ;  // output read signal toggles with respect to psen frequency  
+CSPERIPH= !(A15 & A14 & A13 & A12);  // output csperiph signal is low only for address range f000h - ffffh)
+CE = !((A10#A11#A12#A13#A14) & (!A15)) ; //(chip enable of NVRAM is high only for address range 0000h-7fffh)
+OE = RD & PSEN ; //(output enable of NVRAM is given to PSEN)
+CLK = !A15 & !WR; //(clk signal of latch 74LS374 depends on a15 and write signal)
+
+
+
+
+

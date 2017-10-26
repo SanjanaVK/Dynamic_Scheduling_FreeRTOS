@@ -1,0 +1,160 @@
+# depslib dependency file v1.0
+1492160527 source:c:\users\sanjanakalyanappagol\desktop\esd_lab\lab4\lab4_lcd\uart.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<stdio.h>
+	<stdlib.h>
+	"lcd.h"
+	"delay.h"
+	"uart.h"
+	"eeprom.h"
+	"i2c.h"
+	"datadump.h"
+	"atoh.h"
+	"io_exp.h"
+
+1492161730 c:\users\sanjanakalyanappagol\desktop\esd_lab\lab4\lab4_lcd\lcd.h
+	<stdint.h>
+
+1492161219 c:\users\sanjanakalyanappagol\desktop\esd_lab\lab4\lab4_lcd\delay.h
+
+1491522574 c:\users\sanjanakalyanappagol\desktop\esd_lab\lab4\lab4_lcd\uart.h
+	<stdint.h>
+
+1492162349 source:c:\users\sanjanakalyanappagol\desktop\esd_lab\lab4\lab4_lcd\delay.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<stdio.h>
+	<stdlib.h>
+	"lcd.h"
+	"i2c.h"
+	"eeprom.h"
+	"delay.h"
+	"uart.h"
+	"datadump.h"
+	"atoh.h"
+	"io_exp.h"
+
+1492161658 source:c:\users\sanjanakalyanappagol\desktop\esd_lab\lab4\lab4_lcd\lcd.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<stdio.h>
+	<stdlib.h>
+	"lcd.h"
+	"delay.h"
+	"uart.h"
+	"datadump.h"
+	"atoh.h"
+	"io_exp.h"
+
+1491528618 source:c:\users\sanjanakalyanappagol\desktop\esd_lab\lab4\lab4_lcd\main.c
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lcd.h"
+	"delay.h"
+	"uart.h"
+	"eeprom.h"
+	"i2c.h"
+	"datadump.h"
+	"atoh.h"
+
+1492159912 c:\users\sanjanakalyanappagol\desktop\esd_lab\lab4\lab4_lcd\eeprom.h
+
+1492161336 c:\users\sanjanakalyanappagol\desktop\esd_lab\lab4\lab4_lcd\i2c.h
+
+1492161276 source:c:\users\sanjanakalyanappagol\desktop\esd_lab\lab4\lab4_lcd\eeprom.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<stdio.h>
+	<stdlib.h>
+	"lcd.h"
+	"i2c.h"
+	"eeprom.h"
+	"delay.h"
+	"uart.h"
+	"datadump.h"
+	"atoh.h"
+	"io_exp.h"
+
+1492161356 source:c:\users\sanjanakalyanappagol\desktop\esd_lab\lab4\lab4_lcd\i2c.c
+	<at89c51ed2.h>
+	<mcs51/8051.h>
+	"delay.h"
+	"i2c.h"
+	"eeprom.h"
+	"uart.h"
+	"datadump.h"
+	"atoh.h"
+	"io_exp.h"
+
+1492472080 source:c:\users\sanjanakalyanappagol\desktop\esd_lab\lab4\lab4_lcd\datadump.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<stdio.h>
+	<stdlib.h>
+	"lcd.h"
+	"i2c.h"
+	"eeprom.h"
+	"delay.h"
+	"uart.h"
+	"datadump.h"
+	"atoh.h"
+	"io_exp.h"
+
+1492159875 c:\users\sanjanakalyanappagol\desktop\esd_lab\lab4\lab4_lcd\datadump.h
+
+1492160522 source:c:\users\sanjanakalyanappagol\desktop\esd_lab\lab4\lab4_lcd\atoh.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<stdio.h>
+	<stdlib.h>
+	"lcd.h"
+	"i2c.h"
+	"eeprom.h"
+	"delay.h"
+	"uart.h"
+	"datadump.h"
+	"atoh.h"
+	"io_exp.h"
+
+1492159778 c:\users\sanjanakalyanappagol\desktop\esd_lab\lab4\lab4_lcd\atoh.h
+
+1492160977 source:c:\users\sanjanakalyanappagol\desktop\esd_lab\lab4\lab4_lcd\clock.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<stdio.h>
+	<stdlib.h>
+	"lcd.h"
+	"i2c.h"
+	"eeprom.h"
+	"delay.h"
+	"uart.h"
+	"atoh.h"
+	"clock.h"
+	"io_exp.h"
+
+1492162312 c:\users\sanjanakalyanappagol\desktop\esd_lab\lab4\lab4_lcd\clock.h
+
+1492159965 c:\users\sanjanakalyanappagol\desktop\esd_lab\lab4\lab4_lcd\io_exp.h
+
+1492160525 source:c:\users\sanjanakalyanappagol\desktop\esd_lab\lab4\lab4_lcd\io_exp.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	"lcd.h"
+	"i2c.h"
+	"eeprom.h"
+	"delay.h"
+	"uart.h"
+	"atoh.h"
+	"clock.h"
+	"datadump.h"
+	"io_exp.h"
+

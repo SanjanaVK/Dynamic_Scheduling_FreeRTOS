@@ -1,0 +1,120 @@
+A51 MACRO ASSEMBLER  TIMER2                                                               02/22/2017 14:28:00 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\timer2.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE ..\ESD\asm\timer2.asm SET(SMALL) DEBUG PRINT(.\Listings\timer2.lst) OBJ
+                      ECT(.\Objects\timer2.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;@author: Shreyas Vasanthkumar
+
+                       2     ;filename: timer2.asm
+
+                       3     ;brief: verification of 74ls374 latch and debug circuit
+
+                       4     
+
+0000                   5     ORG 0000H
+
+0000 020020            6     LJMP MAIN   ; jump to main loop
+
+                       7     
+
+000B                   8     ORG 000BH   ; timer0 interrupt address
+
+000B EC                9     MOV A,R4
+
+000C 900016           10     MOV DPTR,#0016H ; move value to dptr
+
+000F F0               11     MOVX @DPTR,A    ; move to external memory
+
+0010 F516             12     MOV 16H,A
+
+0012 BCFF02           13     CJNE R4,#0FFH,HELLO  ; check for register count
+
+0015 7C80             14     MOV R4,#80H    
+
+                      15     
+
+0017 0C               16     HELLO: INC R4       ; increment register each time ISR is executed
+
+0018 D905             17            DJNZ R1,BACK  
+
+001A 7908             18                MOV R1,#08H
+
+001C B293             19            CPL P1.3  ; pin connected to LED
+
+001E 32               20            RETI
+
+                      21                
+
+001F 32               22     BACK: RETI
+
+                      23               
+
+0020 758901           24     MAIN: MOV TMOD,#01H  ; timer 0 mode 1
+
+0023 7908             25               MOV R1,#08H   
+
+0025 7800             26               MOV R0,#00H
+
+0027 7C80             27               MOV R4,#80H
+
+0029 758A00           28           MOV TL0,#00H ; load values into timer
+
+002C 758C34           29           MOV TH0,#34H         
+
+002F 75A882           30               MOV IE,#82H  ; enable interrupt
+
+0032 D28C             31               SETB TR0  ; start timer
+
+                      32                
+
+0034 900008           33     DELAY: MOV DPTR,#0008H  ; load values into dptr
+
+0037 E8               34            MOV A,R0
+
+0038 F0               35            MOVX @DPTR,A   ; move to external memory
+
+0039 F508             36                MOV 8H,A     
+
+003B B87F02           37                CJNE R0,#7FH,HELLO2
+
+003E 7800             38            MOV R0,#00H
+
+                      39     
+
+0040 08               40     HELLO2: INC R0           
+
+0041 80F1             41     HERE: SJMP DELAY  ; loop for interrupt
+
+                      42      END                    
+
+A51 MACRO ASSEMBLER  TIMER2                                                               02/22/2017 14:28:00 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BACK . . . . . . .  C ADDR   001FH   A   
+DELAY. . . . . . .  C ADDR   0034H   A   
+HELLO. . . . . . .  C ADDR   0017H   A   
+HELLO2 . . . . . .  C ADDR   0040H   A   
+HERE . . . . . . .  C ADDR   0041H   A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+MAIN . . . . . . .  C ADDR   0020H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

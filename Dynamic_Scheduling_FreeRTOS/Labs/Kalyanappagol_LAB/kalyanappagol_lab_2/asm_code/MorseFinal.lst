@@ -1,0 +1,292 @@
+A51 MACRO ASSEMBLER  MORSEFINAL                                                           02/22/2017 03:15:26 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\MorseFinal.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE C:\Users\SanjanaKalyanappagol\Desktop\ESD_LAB\MorseFinal.asm SET(SMALL)
+                       DEBUG PRINT(.\MorseFinal.lst) OBJECT(.\MorseFinal.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1            ORG 00H
+
+0000 02000E            2            LJMP MAIN  ;bypassing interrupt vector table 2
+
+                       3     
+
+000B                   4            ORG 000BH       ;timer0 interrupt vector table
+
+000B 020026            5            LJMP ISR_Timer0 
+
+                       6     
+
+000E C292              7     MAIN:  CLR P1.2                 ;Clear the LED
+
+0010 758901            8            MOV TMOD,#01H            ;Load 01H to the TMOD register
+
+0013 75A882            9            MOV IE, #82H             ;Load 82H to the IE register
+
+0016 7805             10            MOV R0, #05H             ;Load the count value for delay to the R0 register         
+
+0018 7A00             11            MOV R2,#00H              ;Initialize a counter to zero, to execute till all letters 
+                             are displayed
+
+001A 758C00           12            MOV TH0,#00H             ;Load Timer count high and low value
+
+001D 758A00           13                MOV TL0, #00H
+
+0020 D292             14            SETB P1.2                ;Set P1.2 hence the LED
+
+0022 D28C             15                SETB TR0             ;Start the timer
+
+0024 80FE             16     HERE:  SJMP HERE                 ;infinite loop
+
+                      17          
+
+0026 D291             18     ISR_Timer0:SETB P1.1                  ;Toggling of another port pin at every ISR
+
+0028 D820             19                DJNZ R0, BACK1             ;Check for timer count value         
+
+002A BA000D           20                CJNE R2,#0,LOOP1           ;Keep a count for a dot in letter E
+
+002D 0A               21                INC R2                     ;Increment the counter if a dot in letter E is dispay
+                             ed
+
+002E 780F             22                MOV R0,#0FH                ;Set the timer value to display 3 dot spaces between 
+                             E and S
+
+0030 758C00           23                MOV TH0,#00H
+
+0033 758A00           24                MOV TL0, #00H
+
+0036 B292             25                CPL P1.2                   ;Toggle the LED showing the first dot, i.e in letter 
+                             E
+
+0038 01F4             26                AJMP SET_Timer0            ;jump to timer settings to start the timer
+
+003A BA0110           27     LOOP1:      CJNE R2,#1,LOOP2           ;Now checks for the count 1, i.e when 3 dot spaces a
+                             re executed
+
+003D 0A               28                INC R2
+
+003E 7805             29                MOV R0,#05H                ;Set timer value for first dot in letter S
+
+0040 758C00           30                MOV TH0,#00H
+
+0043 758A00           31                MOV TL0, #00H
+
+0046 B292             32                CPL P1.2
+
+0048 01F4             33                AJMP SET_Timer0
+
+004A C291             34     BACK1:      CLR P1.1
+
+004C 32               35                RETI
+
+004D BA020D           36     LOOP2:      CJNE R2,#2,LOOP3             ;Now checks for the count 2, i.e when 1st dot is e
+                             xecuted in letter S
+
+0050 0A               37                INC R2
+
+0051 7805             38                MOV R0,#05H                   ;Set timer value for first dot space in letter S
+
+0053 758C00           39                MOV TH0,#00H
+
+0056 758A00           40                MOV TL0, #00H
+
+0059 B292             41                CPL P1.2
+
+005B 01F4             42                AJMP SET_Timer0
+
+005D BA030D           43     LOOP3:      CJNE R2,#3,LOOP4            ;Now checks for the count 3, i.e when 1st dot space
+                              is executed in letter S
+
+0060 0A               44                INC R2
+
+0061 7805             45                MOV R0,#05H                   ;Set timer value for second dot in letter S 
+
+0063 758C00           46                MOV TH0,#00H
+
+0066 758A00           47                MOV TL0, #00H
+
+0069 B292             48                CPL P1.2
+
+006B 01F4             49                AJMP SET_Timer0
+
+006D BA040D           50     LOOP4:      CJNE R2,#4,LOOP5            ;Now checks for the count 4, i.e when 2nd dot is ex
+A51 MACRO ASSEMBLER  MORSEFINAL                                                           02/22/2017 03:15:26 PAGE     2
+
+                             ecuted in letter S
+
+0070 0A               51                INC R2
+
+0071 7805             52                MOV R0,#05H                  ;Set timer value for second dot space in letter S
+
+0073 758C00           53                MOV TH0,#00H
+
+0076 758A00           54                MOV TL0, #00H
+
+0079 B292             55                CPL P1.2
+
+007B 01F4             56                AJMP SET_Timer0
+
+007D BA050D           57     LOOP5:      CJNE R2,#5,LOOP6           ;Now checks for the count 5, i.e when 2nd dot space 
+                             is executed in letter S
+
+0080 0A               58                INC R2
+
+0081 7805             59                MOV R0,#05H                 ;Set timer value for third dot in letter S
+
+0083 758C00           60                MOV TH0,#00H
+
+0086 758A00           61                MOV TL0, #00H
+
+0089 B292             62                CPL P1.2
+
+008B 01F4             63                AJMP SET_Timer0
+
+008D BA060D           64     LOOP6:      CJNE R2,#6,LOOP7            ;Now checks for the count 6, i.e when 3rd dot is ex
+                             ecuted in letter S
+
+0090 0A               65                INC R2
+
+0091 780F             66                MOV R0,#0FH                  ;Set timer value for 3 dot space, between letter S 
+                             and D
+
+0093 758C00           67                MOV TH0,#00H
+
+0096 758A00           68                MOV TL0, #00H
+
+0099 B292             69                CPL P1.2
+
+009B 01F4             70                AJMP SET_Timer0
+
+009D BA070D           71     LOOP7:      CJNE R2,#7,LOOP8             ;Now checks for the count 7, i.e when 3 dot spaces
+                              is executed between letter S and D
+
+00A0 0A               72                INC R2
+
+00A1 780F             73                MOV R0,#0FH                  ;Set timer value for a dash(3 dots) in letter D
+
+00A3 758C00           74                MOV TH0,#00H
+
+00A6 758A00           75                MOV TL0, #00H
+
+00A9 B292             76                CPL P1.2
+
+00AB 01F4             77                AJMP SET_Timer0
+
+00AD BA080D           78     LOOP8:      CJNE R2,#8,LOOP9              ;Now checks for the count 8, i.e when dash is exe
+                             cuted in letter D
+
+00B0 0A               79                INC R2
+
+00B1 7805             80                MOV R0,#05H                    ;Set timer value for a 1st dot space in letter D
+
+00B3 758C00           81                MOV TH0,#00H
+
+00B6 758A00           82                MOV TL0, #00H
+
+00B9 B292             83                CPL P1.2
+
+00BB 01F4             84                AJMP SET_Timer0
+
+00BD BA090D           85     LOOP9:      CJNE R2,#9,LOOPA              ;Now checks for the count 9, i.e when 1st dot spa
+                             ce is executed in letter D
+
+00C0 0A               86                INC R2
+
+00C1 7805             87                MOV R0,#05H                     ;Set timer value for 1st dot in letter D
+
+00C3 758C00           88                MOV TH0,#00H
+
+00C6 758A00           89                MOV TL0, #00H
+
+00C9 B292             90                CPL P1.2
+
+00CB 01F4             91                AJMP SET_Timer0
+
+00CD BA0A0D           92     LOOPA:      CJNE R2,#0AH,LOOPB             ;Now checks for the count 0AH, i.e when 1st dot 
+                             is executed in letter D
+
+00D0 0A               93                INC R2
+
+00D1 7805             94                MOV R0,#05H                     ;Set timer value for 2nd dot space in letter D
+
+00D3 758C00           95                MOV TH0,#00H
+
+00D6 758A00           96                MOV TL0, #00H
+
+00D9 B292             97                CPL P1.2
+
+00DB 01F4             98                AJMP SET_Timer0
+
+00DD BA0B0D           99     LOOPB:      CJNE R2,#00BH,LOOPC             ;Now checks for the count 0BH, i.e when 2nd dot
+                              space is executed in letter D
+
+00E0 0A              100                INC R2
+
+00E1 7805            101                MOV R0,#05H                     ;Set timer value for 2nd dot in letter D
+
+00E3 758C00          102                MOV TH0,#00H
+
+00E6 758A00          103                MOV TL0, #00H
+
+00E9 B292            104                CPL P1.2
+
+00EB 01F4            105                AJMP SET_Timer0
+
+00ED BA0C06          106     LOOPC: CJNE R2,#00CH,BACK                 ;Now checks for the count 0C, i.e when ESD has be
+                             en executed completely
+
+A51 MACRO ASSEMBLER  MORSEFINAL                                                           02/22/2017 03:15:26 PAGE     3
+
+00F0 C292            107            CLR P1.2                           ;Clear the port pin hence the LED
+
+00F2 8002            108            SJMP BACK
+
+00F4 D28C            109     SET_Timer0:SETB TR0                       
+
+00F6 C291            110     BACK:      CLR P1.1
+
+00F8 32              111                RETI                           ;Return from the interrupt
+
+*** WARNING #A41 IN 111 (C:\Users\SanjanaKalyanappagol\Desktop\ESD_LAB\MorseFinal.asm, LINE 111): MISSING 'END' STATEMENT
+A51 MACRO ASSEMBLER  MORSEFINAL                                                           02/22/2017 03:15:26 PAGE     4
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BACK . . . . . . .  C ADDR   00F6H   A   
+BACK1. . . . . . .  C ADDR   004AH   A   
+HERE . . . . . . .  C ADDR   0024H   A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+ISR_TIMER0 . . . .  C ADDR   0026H   A   
+LOOP1. . . . . . .  C ADDR   003AH   A   
+LOOP2. . . . . . .  C ADDR   004DH   A   
+LOOP3. . . . . . .  C ADDR   005DH   A   
+LOOP4. . . . . . .  C ADDR   006DH   A   
+LOOP5. . . . . . .  C ADDR   007DH   A   
+LOOP6. . . . . . .  C ADDR   008DH   A   
+LOOP7. . . . . . .  C ADDR   009DH   A   
+LOOP8. . . . . . .  C ADDR   00ADH   A   
+LOOP9. . . . . . .  C ADDR   00BDH   A   
+LOOPA. . . . . . .  C ADDR   00CDH   A   
+LOOPB. . . . . . .  C ADDR   00DDH   A   
+LOOPC. . . . . . .  C ADDR   00EDH   A   
+MAIN . . . . . . .  C ADDR   000EH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+SET_TIMER0 . . . .  C ADDR   00F4H   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S)

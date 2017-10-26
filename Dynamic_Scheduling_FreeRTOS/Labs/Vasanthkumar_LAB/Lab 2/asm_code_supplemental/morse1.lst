@@ -1,0 +1,370 @@
+A51 MACRO ASSEMBLER  MORSE1                                                               02/22/2017 15:36:54 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\morse1.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE ..\ESD\asm\morse1.asm SET(SMALL) DEBUG PRINT(.\Listings\morse1.lst) OBJ
+                      ECT(.\Objects\morse1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 7B04              2     MAIN: MOV R3,#04H  
+
+0002 7A0C              3           MOV R2,#0CH
+
+0004 7F00              4               MOV R7,#00H
+
+0006 758901            5     LOOP1: MOV TMOD,#01H  ;set mode of timer
+
+0009 758A00            6           MOV TL0,#00H   ;load values into timer
+
+000C 758C00            7           MOV TH0,#00H 
+
+000F D293              8           SETB P1.3    ; set pin high for 'E'
+
+0011 1113              9           ACALL DELAY1
+
+0013 D28C             10     DELAY1: SETB TR0
+
+0015 308DFD           11     AGAIN1: JNB TF0,AGAIN1
+
+0018 C28C             12                CLR TR0
+
+001A C28D             13            CLR TF0
+
+001C DBE8             14            DJNZ R3,LOOP1
+
+001E C293             15     CLR P1.3
+
+0020 758901           16     LOOP2:MOV TMOD,#01H
+
+0023 758A00           17           MOV TL0,#00H
+
+0026 758C00           18           MOV TH0,#00H       
+
+0029 112B             19           ACALL DELAY2
+
+002B D28C             20     DELAY2: SETB TR0
+
+002D 308DFD           21     AGAIN2: JNB TF0,AGAIN2
+
+0030 C28C             22                     CLR TR0
+
+0032 C28D             23             CLR TF0 
+
+0034 DAEA             24             DJNZ R2,LOOP2         
+
+0036 D293             25     SETB P1.3    ; set pin high for 'S'                     
+
+0038 7C04             26     MOV R4,#04H 
+
+003A 758901           27     LOOP3: MOV TMOD,#01H
+
+003D 758A00           28           MOV TL0,#00H
+
+0040 758C00           29           MOV TH0,#00H      
+
+0043 1145             30           ACALL DELAY3 
+
+0045 D28C             31     DELAY3: SETB TR0
+
+0047 308DFD           32     AGAIN3: JNB TF0,AGAIN3
+
+004A C28C             33                CLR TR0
+
+004C C28D             34            CLR TF0
+
+004E DCEA             35            DJNZ R4,LOOP3
+
+0050 B293             36     CPL P1.3
+
+0052 7B04             37     MOV R3,#04H
+
+0054 758901           38     LOOP4: MOV TMOD,#01H
+
+0057 758A00           39           MOV TL0,#00H
+
+005A 758C00           40           MOV TH0,#00H      
+
+005D 115F             41           ACALL DELAY4 
+
+005F D28C             42     DELAY4: SETB TR0
+
+0061 308DFD           43     AGAIN4: JNB TF0,AGAIN4
+
+0064 C28C             44                CLR TR0
+
+0066 C28D             45            CLR TF0
+
+0068 DBEA             46            DJNZ R3,LOOP4
+
+006A D293             47     SETB P1.3                       
+
+006C 7B04             48     MOV R3,#04H
+
+006E 758901           49     LOOP5: MOV TMOD,#01H
+
+0071 758A00           50           MOV TL0,#00H
+
+0074 758C00           51           MOV TH0,#00H      
+
+0077 1179             52           ACALL DELAY5 
+
+0079 D28C             53     DELAY5: SETB TR0
+
+007B 308DFD           54     AGAIN5: JNB TF0,AGAIN5
+
+007E C28C             55                CLR TR0
+
+0080 C28D             56            CLR TF0
+
+0082 DBEA             57            DJNZ R3,LOOP5
+
+A51 MACRO ASSEMBLER  MORSE1                                                               02/22/2017 15:36:54 PAGE     2
+
+0084 B293             58     CPL P1.3
+
+0086 7B04             59     MOV R3,#04H
+
+0088 758901           60     LOOP6: MOV TMOD,#01H
+
+008B 758A00           61           MOV TL0,#00H
+
+008E 758C00           62           MOV TH0,#00H      
+
+0091 1193             63           ACALL DELAY6 
+
+0093 D28C             64     DELAY6: SETB TR0
+
+0095 308DFD           65     AGAIN6: JNB TF0,AGAIN6
+
+0098 C28C             66                CLR TR0
+
+009A C28D             67            CLR TF0
+
+009C DBEA             68            DJNZ R3,LOOP6
+
+009E D293             69     SETB P1.3
+
+00A0 7B04             70     MOV R3,#04H
+
+00A2 758901           71     LOOP7: MOV TMOD,#01H
+
+00A5 758A00           72           MOV TL0,#00H
+
+00A8 758C00           73           MOV TH0,#00H      
+
+00AB 11AD             74           ACALL DELAY7 
+
+00AD D28C             75     DELAY7: SETB TR0
+
+00AF 308DFD           76     AGAIN7:JNB TF0,AGAIN7
+
+00B2 C28C             77                CLR TR0
+
+00B4 C28D             78            CLR TF0
+
+00B6 DBEA             79            DJNZ R3,LOOP7
+
+00B8 C293             80     CLR P1.3
+
+00BA 7B0C             81     MOV R3,#0CH
+
+00BC 758901           82     LOOP8: MOV TMOD,#01H
+
+00BF 758A00           83           MOV TL0,#00H
+
+00C2 758C00           84           MOV TH0,#00H      
+
+00C5 11C7             85           ACALL DELAY8 
+
+00C7 D28C             86     DELAY8: SETB TR0
+
+00C9 308DFD           87     AGAIN8:JNB TF0,AGAIN8
+
+00CC C28C             88                CLR TR0
+
+00CE C28D             89            CLR TF0
+
+00D0 DBEA             90            DJNZ R3,LOOP8
+
+00D2 D293             91     SETB P1.3
+
+00D4 7B0C             92     MOV R3,#0CH
+
+00D6 758901           93     LOOP9: MOV TMOD,#01H  ; set pin high for 'D' 
+
+00D9 758A00           94           MOV TL0,#00H
+
+00DC 758C00           95           MOV TH0,#00H      
+
+00DF 11E1             96           ACALL DELAY9 
+
+00E1 D28C             97     DELAY9: SETB TR0
+
+00E3 308DFD           98     AGAIN9:JNB TF0,AGAIN9
+
+00E6 C28C             99                CLR TR0
+
+00E8 C28D            100            CLR TF0
+
+00EA DBEA            101            DJNZ R3,LOOP9
+
+00EC C293            102     CLR P1.3
+
+00EE 7F04            103     MOV R7,#04H
+
+00F0 758901          104     LOOP10: MOV TMOD,#01H
+
+00F3 758A00          105           MOV TL0,#00H
+
+00F6 758C00          106           MOV TH0,#00H      
+
+00F9 11FB            107           ACALL DELAY10 
+
+00FB D28C            108     DELAY10: SETB TR0
+
+00FD 308DFD          109     AGAIN10:JNB TF0,AGAIN10
+
+0100 C28C            110                CLR TR0
+
+0102 C28D            111            CLR TF0
+
+0104 DFEA            112            DJNZ R7,LOOP10
+
+0106 D293            113     SETB P1.3
+
+0108 7C04            114     MOV R4,#04H
+
+010A 758901          115     LOOP11: MOV TMOD,#01H
+
+010D 758A00          116           MOV TL0,#00H
+
+0110 758C00          117           MOV TH0,#00H      
+
+0113 3115            118           ACALL DELAY11 
+
+0115 D28C            119     DELAY11: SETB TR0
+
+0117 308DFD          120     AGAIN11:JNB TF0,AGAIN11
+
+011A C28C            121                CLR TR0
+
+011C C28D            122            CLR TF0
+
+011E DCEA            123            DJNZ R4,LOOP11
+
+A51 MACRO ASSEMBLER  MORSE1                                                               02/22/2017 15:36:54 PAGE     3
+
+0120 C293            124     CLR P1.3
+
+0122 7F04            125     MOV R7,#04H
+
+0124 758901          126     LOOP12: MOV TMOD,#01H
+
+0127 758A00          127           MOV TL0,#00H
+
+012A 758C00          128           MOV TH0,#00H      
+
+012D 312F            129           ACALL DELAY12 
+
+012F D28C            130     DELAY12: SETB TR0
+
+0131 308DFD          131     AGAIN12:JNB TF0,AGAIN12
+
+0134 C28C            132                CLR TR0
+
+0136 C28D            133            CLR TF0
+
+0138 DFEA            134            DJNZ R7,LOOP12
+
+013A D293            135     SETB P1.3
+
+013C 7F04            136     MOV R7,#04H
+
+013E 758901          137     LOOP13: MOV TMOD,#01H
+
+0141 758A00          138           MOV TL0,#00H
+
+0144 758C00          139           MOV TH0,#00H      
+
+0147 3149            140           ACALL DELAY13 
+
+0149 D28C            141     DELAY13: SETB TR0
+
+014B 308DFD          142     AGAIN13:JNB TF0,AGAIN13
+
+014E C28C            143                CLR TR0
+
+0150 C28D            144            CLR TF0
+
+0152 DFEA            145            DJNZ R7,LOOP13
+
+0154 C293            146     CLR P1.3
+
+0156 80FE            147     HERE: SJMP HERE
+
+*** WARNING #A41 IN 147 (..\ESD\asm\morse1.asm, LINE 147): MISSING 'END' STATEMENT
+A51 MACRO ASSEMBLER  MORSE1                                                               02/22/2017 15:36:54 PAGE     4
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN1 . . . . . .  C ADDR   0015H   A   
+AGAIN10. . . . . .  C ADDR   00FDH   A   
+AGAIN11. . . . . .  C ADDR   0117H   A   
+AGAIN12. . . . . .  C ADDR   0131H   A   
+AGAIN13. . . . . .  C ADDR   014BH   A   
+AGAIN2 . . . . . .  C ADDR   002DH   A   
+AGAIN3 . . . . . .  C ADDR   0047H   A   
+AGAIN4 . . . . . .  C ADDR   0061H   A   
+AGAIN5 . . . . . .  C ADDR   007BH   A   
+AGAIN6 . . . . . .  C ADDR   0095H   A   
+AGAIN7 . . . . . .  C ADDR   00AFH   A   
+AGAIN8 . . . . . .  C ADDR   00C9H   A   
+AGAIN9 . . . . . .  C ADDR   00E3H   A   
+DELAY1 . . . . . .  C ADDR   0013H   A   
+DELAY10. . . . . .  C ADDR   00FBH   A   
+DELAY11. . . . . .  C ADDR   0115H   A   
+DELAY12. . . . . .  C ADDR   012FH   A   
+DELAY13. . . . . .  C ADDR   0149H   A   
+DELAY2 . . . . . .  C ADDR   002BH   A   
+DELAY3 . . . . . .  C ADDR   0045H   A   
+DELAY4 . . . . . .  C ADDR   005FH   A   
+DELAY5 . . . . . .  C ADDR   0079H   A   
+DELAY6 . . . . . .  C ADDR   0093H   A   
+DELAY7 . . . . . .  C ADDR   00ADH   A   
+DELAY8 . . . . . .  C ADDR   00C7H   A   
+DELAY9 . . . . . .  C ADDR   00E1H   A   
+HERE . . . . . . .  C ADDR   0156H   A   
+LOOP1. . . . . . .  C ADDR   0006H   A   
+LOOP10 . . . . . .  C ADDR   00F0H   A   
+LOOP11 . . . . . .  C ADDR   010AH   A   
+LOOP12 . . . . . .  C ADDR   0124H   A   
+LOOP13 . . . . . .  C ADDR   013EH   A   
+LOOP2. . . . . . .  C ADDR   0020H   A   
+LOOP3. . . . . . .  C ADDR   003AH   A   
+LOOP4. . . . . . .  C ADDR   0054H   A   
+LOOP5. . . . . . .  C ADDR   006EH   A   
+LOOP6. . . . . . .  C ADDR   0088H   A   
+LOOP7. . . . . . .  C ADDR   00A2H   A   
+LOOP8. . . . . . .  C ADDR   00BCH   A   
+LOOP9. . . . . . .  C ADDR   00D6H   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S)

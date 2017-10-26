@@ -1,0 +1,83 @@
+A51 MACRO ASSEMBLER  LED_BLINKING_REQUIRED                                                02/23/2017 22:24:30 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\LED blinking_required.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE C:\Users\SanjanaKalyanappagol\Desktop\ESD_LAB\lab2\Code\ASM\LED blinkin
+                      g_required.asm SET(SMALL) DEBUG PRINT(.\LED blinking_required.lst) OBJECT(.\LED blinking_required.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1            ORG 00H
+
+0000 02000E            2            LJMP MAIN  ;bypassing interrupt vector table 
+
+                       3     
+
+000B                   4            ORG 000BH       ;timer0 interrupt vector table
+
+000B 020020            5            LJMP ISR_Timer0 
+
+                       6     
+
+000E 758901            7     MAIN:  MOV TMOD,#01H ;Selecting Timer 0 Mode 1
+
+0011 75A882            8            MOV IE, #82H  ;Enabling Timer 0 Interrupt 
+
+0014 7808              9            MOV R0, #08H   ;Count value for the delay
+
+0016 758C32           10            MOV TH0,#32H   ;Loading Count value in higher 8 bit register of the timer
+
+0019 758A00           11            MOV TL0, #00H  ;Loading Count value in higher 8 bit register of the timer
+
+001C D28C             12            SETB TR0       ;Starting the timer0
+
+001E 80FE             13     HERE:  SJMP HERE      ;waiting in infinite loop till there is an interrupt
+
+                      14          
+
+0020 D291             15     ISR_Timer0:SETB P1.1       ;toggling P1.1 everytime it enters the interrupt routine
+
+0022 D80C             16                DJNZ R0, BACK   ;Checking for count value, complement the LED only if R0 decreme
+                             nts to zero
+
+0024 B292             17                CPL P1.2        ;Complementing LED
+
+0026 7808             18                    MOV R0,#08H      ;Load the count value again for the delay
+
+0028 758C32           19                    MOV TH0,#32H
+
+002B 758A00           20                    MOV TL0, #00H
+
+002E D28C             21                    SETB TR0        ;Start timer0
+
+0030 C291             22     BACK:      CLR P1.1        ;toggle P1.1 everytime it is exiting interrupt routine
+
+0032 32               23                RETI            ;return from the interrupt routine
+
+                      24                END
+
+A51 MACRO ASSEMBLER  LED_BLINKING_REQUIRED                                                02/23/2017 22:24:30 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BACK . . . . . . .  C ADDR   0030H   A   
+HERE . . . . . . .  C ADDR   001EH   A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+ISR_TIMER0 . . . .  C ADDR   0020H   A   
+MAIN . . . . . . .  C ADDR   000EH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

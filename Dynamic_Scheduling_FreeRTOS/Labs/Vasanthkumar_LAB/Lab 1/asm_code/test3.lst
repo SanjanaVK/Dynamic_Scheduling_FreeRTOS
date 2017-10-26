@@ -1,0 +1,93 @@
+A51 MACRO ASSEMBLER  TEST1                                                                02/01/2017 09:21:27 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\test1.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE test1.asm SET(SMALL) DEBUG PRINT(.\Listings\test1.lst) OBJECT(.\Objects
+                      \test1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H
+
+0000 742C              2     MOV A,#02CH    // move values into registers
+
+0002 7907              3     MOV R1,#07H    
+
+0004 7800              4     MOV R0, #00H
+
+0006 89F0              5     MOV B,R1
+
+0008 B90005            6     DIVR: CJNE R1,#00H,ADDR    //check if divisor is zero
+
+000B 753002            7               MOV 30H,#02H     // error code if divisor zero
+
+000E 8028              8               SJMP ENDLOOP
+
+0010 25F0              9     ADDR: ADD A,B      //addition
+
+0012 401A             10     JC REL             //check if addition generated carry
+
+0014 F520             11     MOV 20H,A            // move dividend
+
+0016 95F0             12     DIVIDE:SUBB A,B     // division using repeated subtraction
+
+0018 08               13            INC R0         // counter for quotient
+
+0019 50FB             14                JNC DIVIDE  // check for borrow in subtraction
+
+001B 18               15                DEC R0
+
+001C 25F0             16                ADD A,B          // recover remainder
+
+001E 8821             17     MOV 21H,R0            // move quotient
+
+0020 F522             18     MOV 22H,A             // move remainder
+
+0022 E8               19     MOV A,R0              
+
+0023 C3               20     CLR C
+
+0024 33               21     RLC A              // multiply using rotate
+
+0025 400C             22     JC BEL             // check for carry in multiplication
+
+0027 F523             23     MOV 23H,A          // move result  
+
+0029 753000           24     MOV 30H,#00H
+
+002C 800A             25     SJMP ENDLOOP
+
+002E 753001           26     REL: MOV 30H,#01H  // error code for addition 
+
+0031 8005             27              SJMP ENDLOOP
+
+0033 753003           28     BEL: MOV 30H,#03H     // error code for multiplication
+
+0036 8000             29          SJMP ENDLOOP        
+
+0038 80FE             30     ENDLOOP : SJMP ENDLOOP
+
+                      31     END
+
+A51 MACRO ASSEMBLER  TEST1                                                                02/01/2017 09:21:27 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ADDR . . . . . . .  C ADDR   0010H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+BEL. . . . . . . .  C ADDR   0033H   A   
+DIVIDE . . . . . .  C ADDR   0016H   A   
+DIVR . . . . . . .  C ADDR   0008H   A   
+ENDLOOP. . . . . .  C ADDR   0038H   A   
+REL. . . . . . . .  C ADDR   002EH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
